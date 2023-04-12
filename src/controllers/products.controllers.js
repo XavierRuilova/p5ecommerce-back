@@ -17,7 +17,7 @@ const createProducts = async (req, res) =>{
     const {productname, category, brand, description, imgurl, price} = req.body
 
     try{
-        const newProduct = await Products.find({});
+        const newProduct = await Products.create({productname, category, brand, description, imgurl, price});
         res.json({newProduct});
     } catch (error) {
         res.status(500).json({
