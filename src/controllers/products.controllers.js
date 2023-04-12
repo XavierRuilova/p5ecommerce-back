@@ -1,6 +1,4 @@
 const Products = require('../models/Products');
-const bcryptjs = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 
 const getProducts = async (req, res) =>{
     try{
