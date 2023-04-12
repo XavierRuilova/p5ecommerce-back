@@ -1,5 +1,5 @@
-const Products = require('../models/Products');
-
+const Products = require('../models/Products')
+// const {v4: uuid} = require('uuid')
 const getProducts = async (req, res) =>{
     try{
         const Product = await Products.find({});
@@ -7,7 +7,7 @@ const getProducts = async (req, res) =>{
     } catch (error) {
         res.status(500).json({
             msg: 'Trouble recovering items',
-        });
+        })
     }
 };
 
@@ -20,7 +20,7 @@ const createProducts = async (req, res) =>{
     } catch (error) {
         res.status(500).json({
             msg: 'Trouble saving new items',
-        });
+        })
     }
 };
 
@@ -33,7 +33,7 @@ const updateProducts = async (req, res) =>{
     } catch (error) {
         res.status(500).json({
             msg: 'Trouble updating items',
-        });
+        })
     }
 };
 
@@ -46,7 +46,7 @@ const deleteProducts = async (req, res) =>{
     } catch (error) {
         res.status(500).json({
             msg: 'Trouble removing item',
-        });
+        })
     }
 };
 

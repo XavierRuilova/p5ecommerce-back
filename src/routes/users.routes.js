@@ -1,10 +1,11 @@
-const express = require('express');
-const router = express.Router();
+const {Router} = require('express');
+const { getUsuario, createUsuario, updateUsuario, loginUser, verifyUser } = require('../controllers/users.controllers')
+const router = Router();
 
-router.get('/obtener', ()=>{})
-router.post('/crear', ()=>{} )
-router.put('/actualizar', ()=>{} )
-router.post('/login', ()=>{} )
-router.post('/verificar', ()=>{} )
+router.get('/obtener', getUsuario)
+router.post('/crear', createUsuario )
+router.put('/actualizar', updateUsuario )
+router.post('/login', loginUser )
+router.post('/verificar', verifyUser )
 
 module.exports = router
