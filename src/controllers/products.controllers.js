@@ -1,5 +1,5 @@
 const Products = require('../models/Products')
-// const {v4: uuid} = require('uuid')
+const {v4: uuid} = require('uuid')
 const getProducts = async (req, res) =>{
     try{
         const Product = await Products.find({});
