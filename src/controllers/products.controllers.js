@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const Products = require('../models/Products')
 const {v4: uuid} = require('uuid')
 const getProducts = async (req, res) =>{
@@ -10,19 +9,6 @@ const getProducts = async (req, res) =>{
             msg: 'Trouble recovering items',
         })
     }
-=======
-const Products = require("../models/Products");
-// const {v4: uuid} = require('uuid')
-const getProducts = async (req, res) => {
-  try {
-    const Product = await Products.find();
-    res.json({ Product });
-  } catch (error) {
-    res.status(500).json({
-      msg: "Trouble recovering items",
-    });
-  }
->>>>>>> 81ea3de68f16b139793e27b36fb346359930112b
 };
 
 const createProducts = async (req, res) => {
