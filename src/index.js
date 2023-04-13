@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
-const userRoutes = require("./routes/users.routes");
+const userRoutes = "./routes/users.routes";
+const productRoutes = "./routes/products.routes"; 
 const cors = require("cors");
 const connectDB = require("./config/db");
 
@@ -14,8 +15,8 @@ app.use(cors());
 app.use(express.json());
 
 //ROUTES
-app.use("/producto", require("./routes/products.routes"));
-// app.use('/usuario', require(userRoutes))
+app.use("/products", require(productRoutes));
+app.use('/users', require(userRoutes))
 app.get("/", (req, res) => {
   res.send("RUNNING API");
 });
