@@ -1,17 +1,17 @@
 const {Router} = require('express');
 const { 
-    getUsuario, 
-    createUsuario, 
-    updateUsuario, 
+    getUser, 
+    createUser, 
+    updateUser, 
     loginUser, 
-    verifyUser 
+    verifyUser
 } = require('../controllers/users.controllers')
 
 const router = Router();
 
-router.get('/load', getUsuario)
-router.post('/signup', createUsuario )
-router.put('/update', updateUsuario )
+router.get('/load', getUser)
+router.post('/signup', createUser )
+router.put('/update/', updateUser )
 router.post('/login', loginUser )
 router.post('/verify', verifyUser )
 
