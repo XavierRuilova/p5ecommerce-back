@@ -12,6 +12,7 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.3",
+    "react-paypal-js": "^0.0.1-security",
     "uuid": "^9.0.0"
   },
   "devDependencies": {

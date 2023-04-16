@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
-const userRoutes = "./routes/users.routes";
-const productRoutes = "./routes/products.routes"; 
+const userRoutes = require("./routes/users.routes");
+const productRoutes = require("./routes/products.routes"); 
 const cors = require("cors");
 const connectDB = require("./config/db");
 
@@ -15,13 +15,13 @@ app.use(cors());
 app.use(express.json());
 
 //ROUTES
-app.use("/products", require(productRoutes));
-app.use('/users', require(userRoutes))
+app.use("/products", productRoutes);
+app.use('/users', userRoutes)
 app.get("/", (req, res) => {
-  res.send("RUNNING API");
+  res.send("ECOMMERCE API");
 });
 
 //SERVER
 app.listen(process.env.PORT, () => {
-  console.log(`running on port ${process.env.PORT}`);
+  console.log(`Backend running on port ${process.env.PORT}`);
 });

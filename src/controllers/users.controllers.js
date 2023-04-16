@@ -4,15 +4,21 @@ const jwt = require('jsonwebtoken');
 
 const getUser = async (req, res) => {
 	try {
-		const usuarios = await UsersList.find({})
-		res.json({ usuarios })
+		const usersCall = await UsersList.find({})
+		res.json({ usersCall })
 	} catch (error) {
 		res.status(500).json({ msg: 'There is a problem recovering users' })
 	}
 }
 
 const createUser = async (req, res) => {
-	const { username, name, lastname, email, password } = req.body
+	const { 
+		username, 
+		name, 
+		lastname, 
+		email, 
+		password 
+	} = req.body
 	const salt = await bcryptjs.genSalt(10)
 	const hashedPassword = await bcryptjs.hash(password, salt)
 
@@ -69,7 +75,10 @@ const loginUser = async (req, res) => {
 			},
 		}
 		if (email && passGranted) {
-			jwt.sign(payload, process.env.SECRET, { expiresIn: 3600000 }, (error, token) => {
+			jwt.sign(
+				payload, process.env.SECRET, 
+				{ expiresIn: 3600000 }, 
+				(error, token) => {
 				if (error) throw error
 				//SI TODO SUCEDIÓ CORRECTAMENTE, RETORNAR EL TOKEN
 				res.json({ token })
@@ -97,10 +106,14 @@ const verifyUser = async (req, res) => {
 }
 
 const updateUser = async (req, res) => {
-	const { username, name, lastname, email } = req.body
+	const { 
+		username, 
+		name, 
+		lastname, 
+		email } = req.body
 	try {
 		const updatedUser = await UsersList.findByIdAndUpdate(
-			req.user.id, 
+			req.params.id, 
 			{ 
 				username, 
 				name, 
@@ -116,4 +129,14 @@ const updateUser = async (req, res) => {
 	}
 }
 
-module.exports = { getUser, createUser, updateUser, loginUser, verifyUser }
+const deleteUser = async (req, res) => {
+	try {
+		const userDeleted = await UsersList.findByIdAndRemove({_id:req.params.id})
+		res.json(userDeleted)
+	} catch(error){
+		res.status(500).json({
+			msg: 'Trouble deleting user'
+		})
+	}
+}
+module.exports = { getUser, createUser, updateUser, loginUser, verifyUser, deleteUser }
