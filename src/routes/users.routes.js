@@ -14,7 +14,7 @@ const router = Router();
 router.get('/load', getUser)
 router.post('/signup', createUser )
 router.post('/login', loginUser )
-router.post('/verify', verifyUser )
+router.get('/verify', verifyUser )
 router.put('/update/:id', updateUser )
 router.delete('/cancel/:id', deleteUser)
 
