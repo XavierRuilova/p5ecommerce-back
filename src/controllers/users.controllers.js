@@ -14,7 +14,7 @@ const getUser = async (req, res) => {
 const createUser = async (req, res) => {
 	const { 
 		username, 
-		name, 
+		firstname, 
 		lastname, 
 		email, 
 		password 
@@ -25,7 +25,7 @@ const createUser = async (req, res) => {
 	try {
 		const newUser = await UsersList.create({
 			username,
-			name,
+			firstname,
 			lastname,
 			email,
 			password: hashedPassword,
@@ -108,7 +108,7 @@ const verifyUser = async (req, res) => {
 const updateUser = async (req, res) => {
 	const { 
 		username, 
-		name, 
+		firstname, 
 		lastname, 
 		email } = req.body
 	try {
@@ -116,7 +116,7 @@ const updateUser = async (req, res) => {
 			req.params.id, 
 			{ 
 				username, 
-				name, 
+				firstname, 
 				lastname, 
 				email 
 			}, 
