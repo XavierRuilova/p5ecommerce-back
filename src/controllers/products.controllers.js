@@ -1,5 +1,4 @@
 const ProductsList = require('../models/ProductsModel')
-const {v4: uuid} = require('uuid')
 
 const getProducts = async (req, res) =>{
     try{

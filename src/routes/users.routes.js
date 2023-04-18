@@ -11,11 +11,11 @@ const {
 
 const router = Router();
 
-router.get('/load', getUser)
+router.get('/load', auth, getUser)
 router.post('/signup', createUser )
 router.post('/login', loginUser )
-router.get('/verify', verifyUser )
-router.put('/update/:id', updateUser )
-router.delete('/cancel/:id', deleteUser)
+router.get('/verify', auth,  verifyUser )
+router.put('/update/:id', auth, updateUser )
+router.delete('/cancel/:id', auth, deleteUser)
 
 module.exports = router
