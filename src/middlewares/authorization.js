@@ -5,10 +5,9 @@ module.exports = (req, res, next)=>{
 
     if(!token){
         return res.status(401).json({
-            msg:`No hay datos`
+            msg:`Acceso invalido a los datos`
         })
     }
-
     try{
         const openToken = jwt.verify(token, process.env.SECRET)
 
