@@ -11,6 +11,19 @@ const getProducts = async (req, res) =>{
     }
 };
 
+const findProducts = async (req, res) =>{
+  const {id} = req.params
+  try{
+      const Product = await ProductsList.findById({_id: id});
+      res.json({Product});
+  } catch (error) {
+      res.status(500).json({
+          msg: 'Trouble recovering item',
+      })
+  }
+};
+
+
 const createProducts = async (req, res) => {
   const { 
     productname, 
@@ -85,4 +98,5 @@ module.exports = {
   createProducts,
   updateProducts,
   deleteProducts,
+  findProducts,
 };
