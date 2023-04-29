@@ -56,6 +56,16 @@ const createUser = async (req, res) => {
 	}
 }
 
+const findUser = async (req, res) =>{
+	const {id} = req.body
+	try {
+		let gotUser = await UsersList.findOne({_id: id})
+		res.json({gotUser})
+	 } catch (error) {
+		res.json({ msg: 'Usuario no encontrado', error })
+	}
+}
+
 // INICIAR SESIÓN
 const loginUser = async (req, res) => {
 	const { email, password } = req.body
@@ -139,4 +149,4 @@ const deleteUser = async (req, res) => {
 		})
 	}
 }
-module.exports = { getUser, createUser, updateUser, loginUser, verifyUser, deleteUser }
+module.exports = { getUser, createUser, updateUser, loginUser, verifyUser, deleteUser, findUser }
