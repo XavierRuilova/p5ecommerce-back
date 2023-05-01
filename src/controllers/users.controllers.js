@@ -59,8 +59,8 @@ const createUser = async (req, res) => {
 const findUser = async (req, res) =>{
 	const {id} = req.body
 	try {
-		let gotUser = await UsersList.findOne({_id: id})
-		res.json({gotUser})
+		const gotUser = await UsersList.findById({_id:id})
+		res.json({ gotUser })
 	 } catch (error) {
 		res.json({ msg: 'Usuario no encontrado', error })
 	}

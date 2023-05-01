@@ -16,7 +16,7 @@ router.get('/load', auth, getUser)
 router.post('/signup', createUser )
 router.post('/login', loginUser )
 router.get('/verify', auth,  verifyUser )
-router.get('/find', auth,  findUser )
+router.post('/find', auth,  findUser )
 router.put('/update/:id', auth, updateUser )
 router.delete('/cancel/:id', auth, deleteUser)
 
